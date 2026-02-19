@@ -2,56 +2,57 @@ public class OOPSBannerApp {
 
     public static void main(String[] args) {
 
-        // Step 1: Create String array to hold 7 lines of banner
+        String[] o = getOPattern();
+        String[] p = getPPattern();
+        String[] s = getSPattern();
+
         String[] banner = new String[7];
 
-        // Step 2: Populate array using String.join()
-        banner[0] = String.join("  ",
-                " ******** ",
-                " *******  ",
-                " ******** ",
-                " *******  ");
+        for (int i = 0; i < 7; i++) {
+            banner[i] = String.join("   ", o[i], o[i], p[i], s[i]);
+        }
 
-        banner[1] = String.join("  ",
-                " *      * ",
-                " *      * ",
-                " *      * ",
-                " *      * ");
-
-        banner[2] = String.join("  ",
-                " *      * ",
-                " *      * ",
-                " *      * ",
-                " *      * ");
-
-        banner[3] = String.join("  ",
-                " *      * ",
-                " *******  ",
-                " ******** ",
-                " *******  ");
-
-        banner[4] = String.join("  ",
-                " *      * ",
-                " *        ",
-                " *        ",
-                " *        ");
-
-        banner[5] = String.join("  ",
-                " *      * ",
-                " *        ",
-                " *        ",
-                " *        ");
-
-        banner[6] = String.join("  ",
-                " ******** ",
-                " *        ",
-                " ******** ",
-                " *******  ");
-
-        // Step 3: Print using enhanced for loop
         for (String line : banner) {
             System.out.println(line);
         }
     }
-}
 
+    // ===== Helper Method for O =====
+    public static String[] getOPattern() {
+        return new String[]{
+                "  *****  ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                "  *****  "
+        };
+    }
+
+    // ===== Helper Method for P =====
+    public static String[] getPPattern() {
+        return new String[]{
+                "  *****  ",
+                " *     * ",
+                " *     * ",
+                "  *****  ",
+                " *       ",
+                " *       ",
+                " *       "
+        };
+    }
+
+    // ===== Helper Method for S =====
+    public static String[] getSPattern() {
+        return new String[]{
+                "  *****  ",
+                " *       ",
+                " *       ",
+                "  *****  ",
+                "       * ",
+                "       * ",
+                "  *****  "
+        };
+    }
+}
