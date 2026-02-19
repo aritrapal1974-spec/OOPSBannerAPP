@@ -1,57 +1,94 @@
 public class OOPSBannerApp {
+    static class CharacterPatternMap {
+
+        private final char character;
+        private final String[] pattern;
+        public CharacterPatternMap(char character, String[] pattern) {
+            this.character = character;
+            this.pattern = pattern;
+        }
+        public char getCharacter() {
+            return character;
+        }
+
+        /**
+         * Getter for character pattern.
+         *
+         * @return 7-line banner pattern
+         */
+        public String[] getPattern() {
+            return pattern;
+        }
+    }
+
+    // ===== Utility Methods to Create Patterns =====
+
+    /**
+     * Creates O pattern.
+     */
+    public static CharacterPatternMap createOPattern() {
+        return new CharacterPatternMap('O', new String[]{
+                "  *****  ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                " *     * ",
+                "  *****  "
+        });
+    }
+
+    /**
+     * Creates P pattern.
+     */
+    public static CharacterPatternMap createPPattern() {
+        return new CharacterPatternMap('P', new String[]{
+                "  *****  ",
+                " *     * ",
+                " *     * ",
+                "  *****  ",
+                " *       ",
+                " *       ",
+                " *       "
+        });
+    }
+
+    /**
+     * Creates S pattern.
+     */
+    public static CharacterPatternMap createSPattern() {
+        return new CharacterPatternMap('S', new String[]{
+                "  *****  ",
+                " *       ",
+                " *       ",
+                "  *****  ",
+                "       * ",
+                "       * ",
+                "  *****  "
+        });
+    }
+
+    // ===== Main Method =====
 
     public static void main(String[] args) {
 
-        // Step 1: Create String array to hold 7 lines of banner
-        String[] banner = new String[7];
+        // Array of CharacterPatternMap objects
+        CharacterPatternMap[] characters = {
+                createOPattern(),
+                createOPattern(),
+                createPPattern(),
+                createSPattern()
+        };
 
-        // Step 2: Populate array using String.join()
-        banner[0] = String.join("  ",
-                " ******** ",
-                " *******  ",
-                " ******** ",
-                " *******  ");
+        // Render banner using StringBuilder
+        for (int row = 0; row < 7; row++) {
+            StringBuilder lineBuilder = new StringBuilder();
 
-        banner[1] = String.join("  ",
-                " *      * ",
-                " *      * ",
-                " *      * ",
-                " *      * ");
+            for (CharacterPatternMap cp : characters) {
+                lineBuilder.append(cp.getPattern()[row]).append("   ");
+            }
 
-        banner[2] = String.join("  ",
-                " *      * ",
-                " *      * ",
-                " *      * ",
-                " *      * ");
-
-        banner[3] = String.join("  ",
-                " *      * ",
-                " *******  ",
-                " ******** ",
-                " *******  ");
-
-        banner[4] = String.join("  ",
-                " *      * ",
-                " *        ",
-                " *        ",
-                " *        ");
-
-        banner[5] = String.join("  ",
-                " *      * ",
-                " *        ",
-                " *        ",
-                " *        ");
-
-        banner[6] = String.join("  ",
-                " ******** ",
-                " *        ",
-                " ******** ",
-                " *******  ");
-
-        // Step 3: Print using enhanced for loop
-        for (String line : banner) {
-            System.out.println(line);
+            System.out.println(lineBuilder);
         }
     }
 }
-
