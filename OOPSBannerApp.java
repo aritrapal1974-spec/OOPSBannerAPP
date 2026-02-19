@@ -17,7 +17,7 @@ public class OOPSBannerApp {
         }
     }
 
-    // ===== Helper Method for O =====
+    // ===== O Pattern =====
     public static String[] getOPattern() {
         return new String[]{
                 "  *****  ",
@@ -30,7 +30,7 @@ public class OOPSBannerApp {
         };
     }
 
-    // ===== Helper Method for P =====
+    // ===== P Pattern =====
     public static String[] getPPattern() {
         return new String[]{
                 "  *****  ",
@@ -43,7 +43,7 @@ public class OOPSBannerApp {
         };
     }
 
-    // ===== Helper Method for S =====
+    // ===== S Pattern =====
     public static String[] getSPattern() {
         return new String[]{
                 "  *****  ",
