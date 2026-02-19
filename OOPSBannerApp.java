@@ -1,34 +1,12 @@
-/**
- * OOPS Banner App
- * UC7: Store Character Pattern in a Class
- * Demonstrates encapsulation, modularity, and inner static class usage.
- */
 public class OOPSBannerApp {
-
-    /**
-     * Inner Static Class to encapsulate character and its banner pattern.
-     */
     static class CharacterPatternMap {
 
         private final char character;
         private final String[] pattern;
-
-        /**
-         * Constructor to initialize character and its pattern.
-         *
-         * @param character the character to store
-         * @param pattern   the 7-line banner representation
-         */
         public CharacterPatternMap(char character, String[] pattern) {
             this.character = character;
             this.pattern = pattern;
         }
-
-        /**
-         * Getter for character.
-         *
-         * @return stored character
-         */
         public char getCharacter() {
             return character;
         }
